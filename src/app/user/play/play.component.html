@@ -1,0 +1,90 @@
+<!--Main layout-->
+<main class="mt-5 pt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <app-sidenav></app-sidenav>
+            </div>
+            <div class="col-9">
+                <h4 class="mb-4">Play Game</h4>
+                <div class="row border border-light">
+                    <div class="col-8">
+                        <div class="form-row float-left mt-4 mb-4">
+                            <label class="mt-1">Game Time</label>
+                            <input type="number" min="60" class="ml-2 form-control form-control-sm w-50"
+                                [(ngModel)]="counterLimit" />
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div [ngClass]="!isPlayStart ? 'd-none' : 'b-block'" class="md-form form-sm">
+                            <span class="p-2 bg-danger text-white">{{counter}} seconds remaining</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row" *ngIf="isOver">
+                    <div class="col-12 d-flex justify-content-center">
+                        <div *ngIf="playerOneLifeValue > playerTwoLifeValue" class="alert alert-success mt-3"
+                            role="alert">
+                            You won
+                        </div>
+                        <div *ngIf="playerTwoLifeValue > playerOneLifeValue" class="alert alert-danger mt-3"
+                            role="alert">
+                            You lost
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-7 border border-light">
+                        <div class="row text-center">
+                            <div class="col-6 mb-3 mb-md-0">
+                                <h5 class="pt-5 pb-4 mb-4">{{playerOneName}}</h5>
+                                <div class="progress md-progress" style="height: 20px">
+                                    <div class="progress-bar" role="progressbar"
+                                        style="width: {{playerOneLifeValue}}%; height: 20px" aria-valuenow="25"
+                                        aria-valuemin="0" aria-valuemax="100">{{playerOneLifeValue}}%</div>
+                                </div>
+                            </div>
+                            <div class="col-6 3 mb-md-0">
+                                <h5 class="pt-5 pb-4 mb-4">{{playerTwoName}}</h5>
+                                <div class="progress md-progress" style="height: 20px">
+                                    <div class="progress-bar" role="progressbar"
+                                        style="width: {{playerTwoLifeValue}}%; height: 20px" aria-valuenow="25"
+                                        aria-valuemin="0" aria-valuemax="100">{{playerTwoLifeValue}}%</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 d-flex justify-content-center">
+                                <button [ngClass]="isPlayStart? 'disabled':''" (click)="startPlay()" type="button"
+                                    class="btn btn-primary btn-lg mt-5 mb-5">Start</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <h4 class="mb-4">Action Buttons</h4>
+                                <section class="section-preview mb-5">
+                                    <button type="button" (click)="attack()" [ngClass]="!isPlayStart? 'disabled':''"
+                                        class="btn btn-sm btn-primary waves-effect waves-light">Attack</button>
+                                    <!--<button type="button" [ngClass]="!isPlayStart? 'disabled':''"
+                                        class="btn btn-sm btn-primary waves-effect waves-light">Blast</button>-->
+                                    <button type="button" [ngClass]="!isPlayStart? 'disabled':''" (click)="heal()"
+                                        class="btn btn-sm btn-primary waves-effect waves-light">Heal</button>
+                                    <button type="button" [ngClass]="!isPlayStart? 'disabled':''" (click)="giveup()"
+                                        class="btn btn-sm btn-primary waves-effect waves-light">Give
+                                        UP</button>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-5 border border-left-0 border-light">
+                        <ul class="list-group list-group-flush mt-3"
+                            style="font-size: x-small;max-height: 400px;overflow-y: scroll;">
+                            <li class="list-group-item list-group-item-dark font-weight-bold">Comment Box</li>
+                            <li class="list-group-item" *ngFor="let record of recorder">{{record}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

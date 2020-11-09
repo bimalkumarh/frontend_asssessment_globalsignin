@@ -3,7 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  api_base_url:'http://localhost/assignment_globalsignin/public/api',
+  server_base_url:'http://localhost/assignment_globalsignin'
 };
 
 /*

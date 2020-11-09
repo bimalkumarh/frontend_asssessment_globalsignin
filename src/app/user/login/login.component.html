@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="col-6">
+            <div class="md-form" style="margin-top:170px;">
+                <form [formGroup]="formLogin" (ngSubmit)="onSubmit(formLogin.value)"
+                    class="text-center border border-light p-5">
+                    <p class="h4 mb-4">Sign in</p>
+                    <div class="form-row">
+                        <input formControlName="email" type="email" class="form-control mb-4" placeholder="E-mail">
+                        <div *ngIf="submitted && f.email.errors">
+                            <span *ngIf="submitted && f.email.errors && f.email.errors.required"
+                                class="text-danger font-italic">Please enter email</span>
+                            <span class="text-danger font-italic"
+                                *ngIf="submitted && f.email.errors && f.email.errors.email">Please enter a valid email
+                                address</span>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <input formControlName="password" type="password" class="form-control mb-4"
+                            placeholder="Password">
+                        <div *ngIf="submitted && f.password.errors">
+                            <span *ngIf="submitted && f.password.errors && f.password.errors.required"
+                                class="text-danger font-italic">Please enter password</span>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <button class="btn btn-info btn-block my-4" type="submit">Sign in</button>
+                    </div>
+                    <p>Not a member?
+                        <a routerLink="/register">Register</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

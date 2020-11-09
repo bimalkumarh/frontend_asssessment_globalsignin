@@ -1,0 +1,37 @@
+<!--Main layout-->
+<main class="mt-5 pt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <app-sidenav></app-sidenav>
+            </div>
+            <div class="col-9">
+                <h4 class="mb-4 text-left">My Games</h4>
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">My Life Value</th>
+                            <th scope="col">Dragon Value</th>
+                            <th scope="col">Result</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let game of mygames">
+                            <th scope="row">
+                                <a class="text-primary" [routerLink]="['/my-game-info']" [queryParams]="{ id: game.id }"
+                                    queryParamsHandling="merge">
+                                    {{game.game_id}}
+                                </a>                                
+                            </th>
+                            <td>{{game.playerOneLifeValue}}</td>
+                            <td>{{game.playerTwoLifeValue}}</td>
+                            <td>{{game.result}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>

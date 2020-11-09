@@ -1,0 +1,38 @@
+<!--Main layout-->
+<main class="mt-5 pt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <app-sidenav></app-sidenav>
+            </div>
+            <div class="col-9">
+                <h4 class="mb-4 text-left">Dashboard</h4>
+
+                <!-- Card -->
+                <div class="card testimonial-card">
+
+                    <!-- Background color -->
+                    <div class="card-up indigo lighten-1"></div>
+
+                    <!-- Avatar -->
+                    <div class="avatar mx-auto white">
+                        <img src="{{avathar}}" class="rounded-circle" width="300" height="300"
+                            alt="woman avatar">
+                    </div>
+
+                    <!-- Content -->
+                    <div class="card-body">
+                        <!-- Name -->
+                        <h4 class="card-title">{{full_name}}</h4>
+                        <hr>
+                        <!-- Quotation -->
+                        <p><i class="fas fa-quote-left"></i> {{email}}
+                        </p>
+                    </div>
+
+                </div>
+                <!-- Card -->
+            </div>
+        </div>
+    </div>
+</main>

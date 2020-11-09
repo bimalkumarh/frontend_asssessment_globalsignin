@@ -1,0 +1,80 @@
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="col-6">
+            <div style="margin-top:170px;">
+                <form [formGroup]="formReg" (ngSubmit)="onSubmit(formReg.value)"
+                    class="md-form border border-light p-5">
+                    <p class="h4 mb-4">Sign up</p>
+                    <div class="form-row">
+                        <input formControlName="full_name" type="text" class="form-control" placeholder="Full name">
+                        <div *ngIf="submitted && f.full_name.errors">
+                            <span class="text-danger font-italic"
+                                *ngIf="submitted && f.full_name.errors && f.full_name.errors.required">Please enter full
+                                name</span>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <input formControlName="email" type="email" class="form-control" placeholder="E-mail">
+                        <div *ngIf="submitted && f.email.errors">
+                            <span *ngIf="submitted && f.email.errors && f.email.errors.required"
+                                class="text-danger font-italic">Please enter email</span>
+                            <span class="text-danger font-italic"
+                                *ngIf="submitted && f.email.errors && f.email.errors.email">Please enter a valid email
+                                address</span>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <input formControlName="password" type="password" class="form-control" placeholder="Password">
+                        <div *ngIf="submitted && f.password.errors">
+                            <span class="text-danger font-italic"
+                                *ngIf="submitted && f.password.errors && f.password.errors.required">Please enter password</span>
+                            <!--<span class="text-danger font-italic"
+                                *ngIf="submitted && f.password.errors && f.password.errors.pattern">lower case, upper case, number and special character</span>-->
+                            <span class="text-danger font-italic"
+                                *ngIf="submitted && f.password.errors && f.password.errors.minlength">Password must be
+                                at least 6 characters long.</span>
+                            <span class="text-danger font-italic"
+                                *ngIf="submitted && f.password.errors && f.password.errors.maxlength">Password length cannot exceed 6 characters.</span>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <input formControlName="re_password" type="password" class="form-control"
+                            placeholder="Re-enter password">
+                        <div *ngIf="submitted && f.re_password.errors">
+                            <span class="text-danger font-italic"
+                                *ngIf="submitted && f.re_password.errors && f.re_password.errors.required">Please
+                                re-enter the password</span>
+                            <span class="text-danger font-italic"
+                                *ngIf="submitted && f.re_password.errors.confirmedValidator">Password mismatched.</span>
+                        </div>
+                    </div>
+                    <div class="file-field">
+                        <div class="d-flex justify-content-center">
+                            <div class="float-left">
+                                <span>Choose avathar</span>
+                                <input type="file" class="form-control-file" formControlName="avathar" class="ml-2 mt-3"
+                                    (change)="fileChangeEvent($event)">
+
+                                <div *ngIf="submitted && f.avathar.errors">
+                                    <span class="text-danger font-italic"
+                                        *ngIf="submitted && f.avathar.errors && f.avathar.errors.required">Please upload
+                                        avathar</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="z-depth-1-half mb-4 mt-3" *ngIf="showCropper">
+                            <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true"
+                                [aspectRatio]="3 / 3" format="png" (imageCropped)="imageCropped($event)"
+                                (imageLoaded)="imageLoaded()" (cropperReady)="cropperReady()"
+                                (loadImageFailed)="loadImageFailed()">
+                            </image-cropper>
+                        </div>
+                    </div>
+                    <div class="form-row mb-2">
+                        <button class="btn btn-info my-4 btn-block" type="submit">Sign up</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

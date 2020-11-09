@@ -24,9 +24,18 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/frontend/css/bootstrap.min.css",
+              "src/assets/frontend/css/mdb.min.css",
+              "src/assets/frontend/css/style.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/frontend/js/jquery.min.js",
+              "src/assets/frontend/js/popper.min.js",
+              "src/assets/frontend/js/bootstrap.min.js",
+              "src/assets/frontend/js/mdb.min.js",
+              "src/assets/js/custom.js"
+            ]
           },
           "configurations": {
             "production": {
