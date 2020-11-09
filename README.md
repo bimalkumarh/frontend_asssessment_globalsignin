@@ -2,7 +2,7 @@
 
 Locate the environment.ts file and update the api end points accordingly as given below
 
-api_base_url:'http://hostname/<laravel project path>/public/api'\
+api_base_url:'http://hostname/<laravel project path>/public/api' \
 server_base_url:'http://hostname/<laravel project path>'
 
 ## Development server
