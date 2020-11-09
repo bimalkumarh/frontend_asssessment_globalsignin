@@ -2,7 +2,7 @@
 
 Locate the environment.ts file and update the api end points accordingly as guven below
 
-api_base_url:'http://localhost/<laravel project path>/public/api',
+api_base_url:'http://localhost/<laravel project path>/public/api'__
 server_base_url:'http://localhost/<laravel project path>'
 
 ## Development server
